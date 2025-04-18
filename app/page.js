@@ -168,9 +168,9 @@ export default function Home() {
 
           <p className="text-xl font-medium mb-8">Write the missing letter or letters in the blank to make the correct word.</p>
 
-          <div className="worksheet-row">
+          <div className="">
             {/* On mobile, display all items in a single column ordered by ID */}
-            <div className="block md:hidden">
+            <div className="">
               {currentWords.map((word) => (
                 <div key={word.id} className="worksheet-item">
                   <span>{word.id}. {word.prefix}</span>
@@ -194,7 +194,7 @@ export default function Home() {
             </div>
             
             {/* On desktop, keep the two-column layout */}
-            <div className="hidden md:block column-1">
+            {/* <div className="hidden md:block column-1">
               {currentWords.slice(0, Math.ceil(currentWords.length / 2)).map((word) => (
                 <div key={word.id} className="worksheet-item">
                   <span>{word.id}. {word.prefix}</span>
@@ -237,7 +237,7 @@ export default function Home() {
                   <span>{word.suffix}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {!showResults ? (
