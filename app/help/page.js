@@ -31,7 +31,7 @@ export default function HelpPage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">문의하기</h2>
           <p className="text-gray-700">
-            사용 중 불편한 점이나 건의사항이 있다면 <a href="mailto:artfriendscafe@gmail.com" className="text-blue-500 underline">studyfriends@example.com</a> 으로 메일 주세요!
+            사용 중 불편한 점이나 건의사항이 있다면 <a href="mailto:artfriendscafe@gmail.com" className="text-blue-500 underline">artfriendscafe@gmail.com</a> 으로 메일 주세요!
           </p>
         </section>
       </main>

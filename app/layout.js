@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Study Friends - 재미있게 배우는 즐거운 학습',
+  title: 'Gungeum - 궁금한 문제를 푸는 즐거운 학습',
   description: '초등학생을 위한 영어, 수학 학습 앱입니다. 즐겁게 배우며 성장하세요!',
 };
 
