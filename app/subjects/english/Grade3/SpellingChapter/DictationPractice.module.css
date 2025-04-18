@@ -1,0 +1,94 @@
+/* app/subjects/english/Grade3/DictationPractice.module.css */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff0f6;
+    border: 5px solid #ff6bcb;
+    border-radius: 16px;
+    font-family: 'Comic Neue', cursive;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #e84393;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #6c5f77;
+  }
+  
+  .sentenceList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .sentenceBox {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sentenceLabel {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #6c5ce7;
+  }
+  
+  .input {
+    border: 2px dashed #fab1a0;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: 0.3s;
+    resize: none;
+  }
+  
+  .input:focus {
+    border-color: #ff6bcb;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.2);
+    outline: none;
+  }
+  
+  .correct {
+    background-color: #dff9fb;
+    border-color: #00cec9;
+  }
+  
+  .incorrect {
+    background-color: #ffeaa7;
+    border-color: #fd79a8;
+  }
+  
+  .submitButton {
+    margin-top: 2rem;
+    display: block;
+    background: linear-gradient(to right, #fd79a8, #e84393);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .submitButton:hover {
+    transform: translateY(-3px);
+  }
+  
+  .score {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00b894;
+  }
+  

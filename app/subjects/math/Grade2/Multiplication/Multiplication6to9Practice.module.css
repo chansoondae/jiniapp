@@ -1,0 +1,94 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff0f6;
+    border: 4px solid #fd79a8;
+    border-radius: 16px;
+    font-family: 'Comic Neue', cursive;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    color: #e84393;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #636e72;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .problem {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px dashed #fab1a0;
+    text-align: center;
+  }
+  
+  .number {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: #d63031;
+  }
+  
+  .expression {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .input {
+    width: 50px;
+    padding: 0.3rem;
+    font-size: 1rem;
+    text-align: center;
+    border: 2px solid #b2bec3;
+    border-radius: 6px;
+  }
+  
+  .correct {
+    background-color: #dff9fb;
+    border-color: #00cec9;
+  }
+  
+  .incorrect {
+    background-color: #ffeaa7;
+    border-color: #ff7675;
+  }
+  
+  .submitButton {
+    display: block;
+    margin: 2rem auto 0;
+    background: #e84393;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .submitButton:hover {
+    transform: translateY(-3px);
+  }
+  
+  .score {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d63031;
+    margin-top: 2rem;
+  }
+  
