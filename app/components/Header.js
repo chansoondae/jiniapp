@@ -11,7 +11,7 @@ const Header = () => {
       <div className={styles.logoContainer}>
         <div className={styles.logo}>
           <span className={styles.pencil}>✏️</span>
-          <h1 className={styles.title}>Study Friends</h1>
+          <h1 className={styles.title}>Gungeum</h1>
         </div>
         <p className={styles.subtitle}>재미있게 배우는 즐거운 학습</p>
       </div>

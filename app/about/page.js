@@ -8,9 +8,9 @@ export default function AboutPage() {
     <>
       <Header />
       <main className="max-w-screen-md mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4 text-center">📘 Study Friends 소개</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">📘 Gungeum 소개</h1>
         <p className="text-lg text-gray-700 mb-6 text-center">
-          Study Friends는 초등학생을 위한 학습 앱입니다.
+          Gungeum은 초등학생을 위한 학습 앱입니다.
           영어, 수학, 과학, 사회 등 다양한 과목을 재미있게 공부할 수 있어요.
         </p>
         <div className="bg-white shadow rounded-xl p-6 text-gray-800">
