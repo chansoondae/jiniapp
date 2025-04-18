@@ -1,0 +1,322 @@
+/* NumberSplitPractice 컴포넌트 모듈 스타일 */
+.mathWorksheetContainer {
+    max-width: 900px;
+    margin: 2rem auto;
+    border: 5px solid #6c5ce7;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.2), 
+                0 0 10px rgba(108, 92, 231, 0.1),
+                0 0 0 15px rgba(108, 92, 231, 0.05);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .worksheetHeader {
+    background: linear-gradient(135deg, #74b9ff 0%, #6c5ce7 100%);
+    padding: 1.2rem;
+    border-bottom: 5px dashed #ff9ff3;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    color: white;
+  }
+  
+  .subjectBadge {
+    background: linear-gradient(135deg, #ff9ff3 0%, #ff6b6b 100%);
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(-5deg);
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+  
+  .worksheetContent {
+    background-color: white;
+    padding: 2rem;
+    background-image: 
+      repeating-linear-gradient(white 0px, white 24px, #e0f7fa 25px);
+    position: relative;
+  }
+  
+  .numberSplitBox {
+    border: 2px solid #6c5ce7;
+    border-radius: 8px;
+    padding: 0.5rem;
+    position: relative;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .numberSplitBox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(108, 92, 231, 0.2);
+  }
+  
+  .problemNumber {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #ff9ff3;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .totalNumber {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    color: #2d3436;
+    border-bottom: 2px dashed #e0e0e0;
+  }
+  
+  .splitContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: none;
+  }
+  
+  .splitCell {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .splitCell:first-child {
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .numberInput {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px dashed #6c5ce7;
+    border-radius: 8px;
+    background-color: rgba(108, 92, 231, 0.05);
+    outline: none;
+    transition: all 0.3s;
+    padding: 0;
+  }
+  
+  .numberInput:focus {
+    border-color: #ff9ff3;
+    box-shadow: 0 0 0 3px rgba(255, 159, 243, 0.3);
+  }
+  
+  .numberInput.correct {
+    border-color: #1dd1a1;
+    background-color: rgba(29, 209, 161, 0.1);
+    animation: correct 0.5s ease;
+  }
+  
+  .numberInput.incorrect {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .numberDisplay {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d3436;
+  }
+  
+  /* 청색은 student-filled 숫자 */
+  .numberDisplay.studentFill {
+    color: #3498db;
+  }
+  
+  /* 결과 메시지 */
+  .resultMessage {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  
+  .resultMessage.perfect {
+    color: #1dd1a1;
+    background-color: rgba(29, 209, 161, 0.1);
+    border: 2px solid #1dd1a1;
+  }
+  
+  .resultMessage.perfect::after {
+    content: "🌟";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resultMessage.good {
+    color: #0984e3;
+    background-color: rgba(9, 132, 227, 0.1);
+    border: 2px solid #0984e3;
+  }
+  
+  .resultMessage.good::after {
+    content: "👍";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resultMessage.needsPractice {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 2px solid #ff6b6b;
+  }
+  
+  .resultMessage.needsPractice::after {
+    content: "✏️";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* 버튼 스타일 */
+  .submitButton {
+    background: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+    border: 3px solid #6c5ce7;
+    color: #2d3436;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .submitButton::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    top: 0;
+    left: -100%;
+    transition: all 0.6s;
+  }
+  
+  .submitButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .submitButton:hover::before {
+    left: 100%;
+  }
+  
+  .practiceButton {
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .practiceButton::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    top: 0;
+    left: -100%;
+    transition: all 0.6s;
+  }
+  
+  .practiceButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+  }
+  
+  .practiceButton:hover::before {
+    left: 100%;
+  }
+  
+  /* 모바일 반응형 */
+  @media (max-width: 640px) {
+    .numberSplitBox {
+      margin-bottom: 1rem;
+    }
+    
+    .subjectBadge {
+      width: 80px;
+      height: 80px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* 애니메이션 키프레임 정의 - 필요한 경우 별도 전역 CSS로 이동 */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes correct {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }

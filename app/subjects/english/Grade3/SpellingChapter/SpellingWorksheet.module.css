@@ -1,0 +1,380 @@
+/* SpellingWorksheet 컴포넌트 모듈 스타일 */
+.worksheetContainer {
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 5px solid #6c5ce7;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.2), 
+                0 0 10px rgba(108, 92, 231, 0.1),
+                0 0 0 15px rgba(108, 92, 231, 0.05);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+  }
+  
+  .worksheetContainer::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 80px;
+    height: 80px;
+    background: #fdcb6e;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    z-index: 1;
+  }
+  
+  .worksheetHeader {
+    background: linear-gradient(135deg, #fdcb6e 0%, #ff9ff3 100%);
+    padding: 1.2rem;
+    border-bottom: 5px dashed #6c5ce7;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .worksheetHeader::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-image: 
+      radial-gradient(circle at 10px -5px, transparent 12px, white 13px, transparent 13px);
+    background-size: 20px 20px;
+    background-position: bottom;
+    bottom: -10px;
+    left: 0;
+    opacity: 0.4;
+  }
+  
+  .weekCircle {
+    background: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+    border: 3px solid #6c5ce7;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(-5deg);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .weekCircle::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+    z-index: -1;
+    animation: spin 8s linear infinite;
+  }
+  
+  .worksheetContent {
+    background-color: white;
+    padding: 2rem;
+    background-image: 
+      repeating-linear-gradient(white 0px, white 24px, #e0f7fa 25px);
+    position: relative;
+  }
+  
+  .worksheetItem {
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .worksheetItem:hover {
+    transform: translateX(5px);
+  }
+  
+  .worksheetItem span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .missingLetterInput {
+    border: none;
+    border-bottom: 3px dotted #6c5ce7;
+    width: 100px;
+    padding: 0.3rem 0.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    outline: none;
+    background-color: rgba(108, 92, 231, 0.05);
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s;
+    position: relative;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+  }
+  
+  .missingLetterInput:focus {
+    background-color: rgba(108, 92, 231, 0.1);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .missingLetterInput.correct {
+    border-bottom: 3px solid #1dd1a1;
+    background-color: rgba(29, 209, 161, 0.1);
+    animation: correct 0.5s ease;
+  }
+  
+  .missingLetterInput.incorrect {
+    border-bottom: 3px solid #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  /* 결과 메시지 */
+  .resultMessage {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  
+  .resultMessage.perfect {
+    color: #1dd1a1;
+    background-color: rgba(29, 209, 161, 0.1);
+    border: 2px solid #1dd1a1;
+  }
+  
+  .resultMessage.perfect::after {
+    content: "🌟";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resultMessage.good {
+    color: #0984e3;
+    background-color: rgba(9, 132, 227, 0.1);
+    border: 2px solid #0984e3;
+  }
+  
+  .resultMessage.good::after {
+    content: "👍";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .resultMessage.needsPractice {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 2px solid #ff6b6b;
+  }
+  
+  .resultMessage.needsPractice::after {
+    content: "✏️";
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* 버튼 스타일 */
+  .submitButton {
+    background: linear-gradient(135deg, #00cec9 0%, #81ecec 100%);
+    border: 3px solid #6c5ce7;
+    color: #2d3436;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .submitButton::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    top: 0;
+    left: -100%;
+    transition: all 0.6s;
+  }
+  
+  .submitButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .submitButton:hover::before {
+    left: 100%;
+  }
+  
+  .practiceButton {
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .practiceButton::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    top: 0;
+    left: -100%;
+    transition: all 0.6s;
+  }
+  
+  .practiceButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+  }
+  
+  .practiceButton:hover::before {
+    left: 100%;
+  }
+  
+  /* Confetti animation when getting perfect score */
+  @keyframes confetti {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+  
+  .celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .star {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    top: -10px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: star-fall 2s ease-in-out forwards;
+  }
+  
+  /* 색상이 있는 스탬프형 동물 캐릭터 피드백 */
+  .characterFeedback {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: in1.8rem;
+    animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    z-index: 100;
+  }
+  
+  .characterPerfect {
+    background: #1dd1a1;
+    box-shadow: 0 0 0 10px rgba(29, 209, 161, 0.3);
+  }
+  
+  .characterGood {
+    background: #fdcb6e;
+    box-shadow: 0 0 0 10px rgba(253, 203, 110, 0.3);
+  }
+  
+  .characterPractice {
+    background: #ff9ff3;
+    box-shadow: 0 0 0 10px rgba(255, 159, 243, 0.3);
+  }
+  
+  /* 애니메이션 키프레임 정의 */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes correct {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  
+  @keyframes pop-in {
+    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+  
+  @keyframes star-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+  
+  /* 모바일 반응형 */
+  @media (max-width: 640px) {
+    .weekCircle {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .missingLetterInput {
+      width: 70px;
+    }
+  }
