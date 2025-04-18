@@ -77,6 +77,16 @@ export default function Home() {
     });
     
     setShowResults(true);
+    
+    // Scroll to results on mobile
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
   };
 
   const switchToAdditionalWords = () => {
@@ -115,21 +125,21 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="worksheet-container">
-        <div className="worksheet-header">
+        <div className="worksheet-header flex flex-col sm:flex-row items-center gap-4">
           <div className="flex flex-col">
-            <h1 className="text-4xl font-bold">Grade 3</h1>
-            <h2 className="text-3xl font-bold">Spelling Words</h2>
+            <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left">Grade 3</h1>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Spelling Words</h2>
           </div>
-          <div className="week-circle">
+          <div className="week-circle shrink-0">
             <span className="text-sm">Week</span>
             <span className="text-4xl">{currentWords === originalWords ? '32' : '33'}</span>
           </div>
-          <h1 className="text-4xl font-bold ml-auto">Write the Missing Letters!</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-center sm:text-left sm:ml-auto">Write the Missing Letters!</h1>
         </div>
         
         <div className="worksheet-content">
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto items-start sm:items-center gap-2">
               <label htmlFor="student-name" className="text-xl font-semibold">Name:</label>
               <input
                 type="text"
@@ -137,10 +147,10 @@ export default function Home() {
                 ref={nameInputRef}
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
-                className="border-b-2 border-gray-400 px-2 py-1 outline-none min-w-[300px]"
+                className="border-b-2 border-gray-400 px-2 py-1 outline-none w-full sm:min-w-[300px]"
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-end">
               <button 
                 onClick={switchToOriginalWords}
                 className={`px-3 py-1 rounded ${currentWords === originalWords ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
@@ -159,7 +169,32 @@ export default function Home() {
           <p className="text-xl font-medium mb-8">Write the missing letter or letters in the blank to make the correct word.</p>
 
           <div className="worksheet-row">
-            <div className="column-1">
+            {/* On mobile, display all items in a single column ordered by ID */}
+            <div className="block md:hidden">
+              {currentWords.map((word) => (
+                <div key={word.id} className="worksheet-item">
+                  <span>{word.id}. {word.prefix}</span>
+                  <input
+                    type="text"
+                    className={`missing-letter-input ${
+                      showResults
+                        ? results.detailedResults.find(r => r.id === word.id).isCorrect
+                          ? 'correct'
+                          : 'incorrect'
+                        : ''
+                    }`}
+                    value={userAnswers[word.id] || ''}
+                    onChange={(e) => handleInputChange(word.id, e.target.value)}
+                    maxLength={word.answer.length}
+                    disabled={showResults}
+                  />
+                  <span>{word.suffix}</span>
+                </div>
+              ))}
+            </div>
+            
+            {/* On desktop, keep the two-column layout */}
+            <div className="hidden md:block column-1">
               {currentWords.slice(0, Math.ceil(currentWords.length / 2)).map((word) => (
                 <div key={word.id} className="worksheet-item">
                   <span>{word.id}. {word.prefix}</span>
@@ -181,7 +216,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="column-2">
+            <div className="hidden md:block column-2">
               {currentWords.slice(Math.ceil(currentWords.length / 2)).map((word) => (
                 <div key={word.id} className="worksheet-item">
                   <span>{word.id}. {word.prefix}</span>
@@ -220,7 +255,7 @@ export default function Home() {
               {results.score < 100 && (
                 <div className="mt-4">
                   <h3 className="text-xl font-semibold mb-2">Correct answers for missed words:</h3>
-                  <ul className="grid grid-cols-2 gap-2">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {results.detailedResults.filter(r => !r.isCorrect).map(word => (
                       <li key={word.id} className="text-red-500">
                         {word.id}. {word.prefix}<strong>{word.answer}</strong>{word.suffix} 
@@ -231,22 +266,22 @@ export default function Home() {
                 </div>
               )}
               
-              <div className="mt-8 flex justify-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <button 
                   onClick={() => {
                     setUserAnswers({});
                     setShowResults(false);
                   }} 
-                  className="submit-button"
+                  className="submit-button w-full sm:w-auto"
                 >
                   Try Again
                 </button>
                 {currentWords === originalWords ? (
-                  <button onClick={switchToAdditionalWords} className="practice-button">
+                  <button onClick={switchToAdditionalWords} className="practice-button w-full sm:w-auto">
                     Try Practice Words
                   </button>
                 ) : (
-                  <button onClick={switchToOriginalWords} className="practice-button">
+                  <button onClick={switchToOriginalWords} className="practice-button w-full sm:w-auto">
                     Go Back to Original Words
                   </button>
                 )}
