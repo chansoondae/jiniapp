@@ -1,7 +1,7 @@
 'use client';
 
-import Header from '../components/common/Header';
-import BottomNav from '../components/common/BottomNav';
+import Header from '../components/Header';
+import BottomNav from '../components/BottomNav';
 
 export default function HelpPage() {
   return (
