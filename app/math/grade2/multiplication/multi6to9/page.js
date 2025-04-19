@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './Multiplication6to9Practice.module.css';
+import styles from './page.module.css';
 
 const problems = [
   [9, 1], [9, 7], [6, 7], [7, 3], [6, 9], [8, 3],

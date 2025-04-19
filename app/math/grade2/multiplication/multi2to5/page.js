@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './Multiplication2to5Practice.module.css';
+import styles from './page.module.css';
 
 const problems = [
   [4, 6], [2, 7], [3, 7], [3, 4], [4, 1], [5, 7],
