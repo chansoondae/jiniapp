@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { subjects } from './data/subjects';
-import Header from './components/common/Header';
-import BottomNav from './components/common/BottomNav';
+import Header from './components/Header';
+import BottomNav from './components/BottomNav';
 import dynamic from 'next/dynamic';
 import styles from './page.module.css';
 
@@ -20,6 +20,8 @@ const Multiplication6to9Practice = dynamic(() => import('./subjects/math/Grade2/
 const ScienceLeafQuiz = dynamic(() => import('./subjects/science/Grade3/LeafChapter/ScienceLeafQuiz').then(m => m.default));
 const SocialRegionQuiz = dynamic(() => import('./subjects/social/Grade4/RegionInfo/SocialRegionQuiz').then(m => m.default));
 const SocialTimeQuiz = dynamic(() => import('./subjects/social/Grade3/TimeFlow/SocialTimeQuiz').then(m => m.default));
+const VocabularyQuiz = dynamic(() => import('./subjects/english/Grade3/Crossword/VocabularyCrossword').then(m => m.default));
+
 
 export default function Home() {
   const [activeSubject, setActiveSubject] = useState('english');
@@ -40,7 +42,8 @@ export default function Home() {
       Multiplication6to9Practice,
       ScienceLeafQuiz,
       SocialRegionQuiz,
-      SocialTimeQuiz
+      SocialTimeQuiz,
+      VocabularyQuiz
     };
     return map[name];
   };

@@ -22,13 +22,6 @@ export const subjects = [
                 icon: '🔡'
               },
               {
-                id: 'repeatWrite',
-                name: '두 번 따라 쓰기',
-                component: 'SpellingRepeatPractice',
-                description: '단어를 두 번씩 써보며 철자를 익혀요',
-                icon: '✍️'
-              },
-              {
                 id: 'correctSpelling',
                 name: '정확한 철자 고르기',
                 component: 'SpellingChoicePractice',
@@ -41,6 +34,28 @@ export const subjects = [
                 component: 'DictationPractice',
                 description: '문장을 듣고 따라 쓰며 문법과 철자 연습',
                 icon: '🗣️'
+              },
+              {
+                id: 'repeatWrite',
+                name: '두 번 따라 쓰기',
+                component: 'SpellingRepeatPractice',
+                description: '단어를 두 번씩 써보며 철자를 익혀요',
+                icon: '✍️'
+              }
+            ]
+          },
+          {
+            id: 'vocabulary',
+            name: '어휘 퀴즈',
+            icon: '🧠',
+            description: '단어의 뜻과 철자를 퀴즈로 연습해요',
+            subChapters: [
+              {
+                id: 'vocabCrossword',
+                name: '낱말 퍼즐 퀴즈',
+                component: 'VocabularyQuiz',
+                description: '단어의 뜻에 맞춰 철자를 입력해요',
+                icon: '🧩'
               }
             ]
           }
