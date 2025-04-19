@@ -6,8 +6,7 @@ import BottomNav from '../components/BottomNav';
 export default function HelpPage() {
   return (
     <>
-      <Header />
-      <main className="max-w-screen-md mx-auto p-6">
+      <main className="max-w-screen-md mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">🆘 도움말</h1>
 
         <section className="mb-8">
@@ -35,7 +34,6 @@ export default function HelpPage() {
           </p>
         </section>
       </main>
-      <BottomNav subjects={[]} activeSubject={null} onSubjectChange={() => {}} />
     </>
   );
 }

@@ -1,4 +1,7 @@
 import './globals.css';
+import Header from './components/Header';
+import SimpleBottomNav from './components/BottomNav';
+import { subjects } from './data/subjects';
 
 export const metadata = {
   title: 'Gungeum - 궁금한 문제를 푸는 즐거운 학습',
@@ -17,8 +20,13 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
-      <body>
-        {children}
+      <body className="bg-gray-50 min-h-screen">
+        <Header />
+        <main className="min-h-[calc(100vh-120px)] pt-16 pb-20">
+          {children}
+        </main>
+        <SimpleBottomNav subjects={subjects} />
+        <div id="modal-root"></div>
       </body>
     </html>
   );

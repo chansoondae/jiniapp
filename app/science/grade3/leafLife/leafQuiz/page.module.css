@@ -1,0 +1,100 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Neue', cursive;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2d3436;
+}
+
+.questionBox {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f9f9ff;
+  border-left: 4px solid #6c5ce7;
+  border-radius: 8px;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  white-space: pre-line;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.options li {
+  margin-bottom: 0.5rem;
+}
+
+.options input[type='checkbox'],
+.options input[type='radio'] {
+  margin-right: 0.5rem;
+}
+
+.correct {
+  color: #1dd1a1;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.incorrect {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6c5ce7;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #5a4dcf;
+}
+
+.thankyou {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0984e3;
+  margin-top: 1rem;
+}

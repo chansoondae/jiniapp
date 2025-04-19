@@ -6,8 +6,7 @@ import BottomNav from '../components/BottomNav';
 export default function AboutPage() {
   return (
     <>
-      <Header />
-      <main className="max-w-screen-md mx-auto p-6">
+      <main className="max-w-screen-md mx-auto">
         <h1 className="text-3xl font-bold mb-4 text-center">📘 Gungeum 소개</h1>
         <p className="text-lg text-gray-700 mb-6 text-center">
           Gungeum은 초등학생을 위한 학습 앱입니다.
@@ -24,11 +23,6 @@ export default function AboutPage() {
           </ul>
         </div>
       </main>
-      <BottomNav 
-        subjects={[]} 
-        activeSubject={null} 
-        onSubjectChange={() => {}} 
-      />
     </>
   );
 }
