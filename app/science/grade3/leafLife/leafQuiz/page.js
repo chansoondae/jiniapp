@@ -59,6 +59,11 @@ export default function ScienceLeafQuiz() {
     setSubmitted(true);
   };
 
+  const resetQuiz = () => {
+    setAnswers({});
+    setSubmitted(false);
+  };
+
   const isCorrect = (index) => {
     const userAnswer = answers[index];
     const correct = questions[index].correctAnswer;
@@ -87,6 +92,7 @@ export default function ScienceLeafQuiz() {
               value={answers[i] || ''}
               onChange={(e) => handleChange(i, e.target.value)}
               className={styles.input}
+              disabled={submitted}
             />
           )}
           {q.type === 'multi' && (
@@ -104,6 +110,7 @@ export default function ScienceLeafQuiz() {
                           : prev.filter(item => item !== opt);
                         handleChange(i, newValue);
                       }}
+                      disabled={submitted}
                     />
                     {opt}
                   </label>
@@ -121,6 +128,7 @@ export default function ScienceLeafQuiz() {
                       name={`question-${i}`}
                       checked={answers[i] === opt}
                       onChange={() => handleChange(i, opt)}
+                      disabled={submitted}
                     />
                     {opt}
                   </label>
@@ -135,11 +143,16 @@ export default function ScienceLeafQuiz() {
           )}
         </div>
       ))}
-      {!submitted ? (
-        <button onClick={handleSubmit} className={styles.submitButton}>제출</button>
-      ) : (
-        <p className={styles.thankyou}>🎉 정답률: {Math.round((correctCount / questions.length) * 100)}% ({correctCount}/{questions.length})</p>
-      )}
+      <div className={styles.buttonGroup}>
+        {!submitted ? (
+          <button onClick={handleSubmit} className={styles.submitButton}>제출</button>
+        ) : (
+          <>
+            <p className={styles.thankyou}>🎉 정답률: {Math.round((correctCount / questions.length) * 100)}% ({correctCount}/{questions.length})</p>
+            <button onClick={resetQuiz} className={styles.submitButton}>다시 풀기</button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

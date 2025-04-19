@@ -93,9 +93,28 @@
     cursor: pointer;
     transition: transform 0.2s;
   }
+
+  .resetButton {
+    margin-top: 2rem;
+    display: block;
+    background-color: #74b9ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
   
-  .submitButton:hover {
-    transform: translateY(-3px);
+  .submitButton:hover, .resetButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submitButton:active, .resetButton:active {
+    transform: translateY(0);
   }
   
   .score {

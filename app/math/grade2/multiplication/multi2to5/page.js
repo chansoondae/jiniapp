@@ -25,6 +25,11 @@ export default function Multiplication2to5Practice() {
     }, 0);
   };
 
+  const resetQuiz = () => {
+    setAnswers({});
+    setSubmitted(false);
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>✖️ 곱셈 연습 (2~5단)</h1>
@@ -43,14 +48,22 @@ export default function Multiplication2to5Practice() {
               }`}
               disabled={submitted}
             />
+            {submitted && answers[i] !== a * b && (
+              <div className={styles.correctAnswer}>정답: {a * b}</div>
+            )}
           </div>
         ))}
       </div>
-      {!submitted ? (
-        <button className={styles.submitButton} onClick={() => setSubmitted(true)}>정답 확인</button>
-      ) : (
-        <div className={styles.score}>총 점수: {getScore()} / {problems.length}</div>
-      )}
+      <div className={styles.buttonGroup}>
+        {!submitted ? (
+          <button className={styles.submitButton} onClick={() => setSubmitted(true)}>정답 확인</button>
+        ) : (
+          <>
+            <div className={styles.score}>총 점수: {getScore()} / {problems.length}</div>
+            <button className={styles.submitButton} onClick={resetQuiz}>다시 풀기</button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

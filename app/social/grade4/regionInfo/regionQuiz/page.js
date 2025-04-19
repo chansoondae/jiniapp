@@ -38,6 +38,11 @@ export default function SocialRegionQuiz() {
     return questions.reduce((score, q, i) => selected[i] === q.answer ? score + 1 : score, 0);
   };
 
+  const resetQuiz = () => {
+    setSelected({});
+    setSubmitted(false);
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>📍 지역 정보 퀴즈</h1>
@@ -57,14 +62,22 @@ export default function SocialRegionQuiz() {
               </button>
             ))}
           </div>
+          {submitted && selected[i] !== q.answer && (
+            <div className={styles.correctAnswer}>정답: {q.answer}</div>
+          )}
         </div>
       ))}
 
-      {!submitted ? (
-        <button className={styles.submitButton} onClick={() => setSubmitted(true)}>정답 확인</button>
-      ) : (
-        <div className={styles.score}>총 점수: {getScore()} / {questions.length}</div>
-      )}
+      <div className={styles.buttonGroup}>
+        {!submitted ? (
+          <button className={styles.submitButton} onClick={() => setSubmitted(true)}>정답 확인</button>
+        ) : (
+          <>
+            <div className={styles.score}>총 점수: {getScore()} / {questions.length}</div>
+            <button className={styles.submitButton} onClick={resetQuiz}>다시 풀기</button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

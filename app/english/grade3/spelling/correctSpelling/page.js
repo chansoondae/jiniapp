@@ -1,5 +1,3 @@
-// app/subjects/english/Grade3/SpellingChapter/SpellingChoicePractice.js
-
 'use client';
 
 import { useState } from 'react';
@@ -35,6 +33,11 @@ export default function SpellingChoicePractice() {
   };
 
   const isCorrect = (index) => answers[index] === questions[index].word;
+  
+  const resetQuiz = () => {
+    setAnswers({});
+    setSubmitted(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -66,15 +69,22 @@ export default function SpellingChoicePractice() {
         ))}
       </div>
 
-      {!submitted ? (
-        <button className={styles.submitButton} onClick={() => setSubmitted(true)}>
-          Check Answers
-        </button>
-      ) : (
-        <div className={styles.score}>
-          Score: {Object.values(answers).filter((ans, i) => ans === questions[i].word).length} / {questions.length}
-        </div>
-      )}
+      <div className={styles.buttonGroup}>
+        {!submitted ? (
+          <button className={styles.submitButton} onClick={() => setSubmitted(true)}>
+            Check Answers
+          </button>
+        ) : (
+          <>
+            <div className={styles.score}>
+              Score: {Object.values(answers).filter((ans, i) => ans === questions[i].word).length} / {questions.length}
+            </div>
+            <button className={styles.resetButton} onClick={resetQuiz}>
+              Try Again
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

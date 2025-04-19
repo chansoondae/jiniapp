@@ -101,4 +101,19 @@
     margin-top: 2rem;
     color: #00b894;
   }
+  .correctAnswer {
+    color: #2ecc71;
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 4px;
+    background-color: rgba(46, 204, 113, 0.1);
+    border-radius: 4px;
+  }
   
+  /* SpellingChoicePractice.module.css에는 아래 스타일도 추가 */
+  .question .correctAnswer {
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }

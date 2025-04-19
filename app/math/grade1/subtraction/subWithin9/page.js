@@ -46,6 +46,11 @@ export default function SubtractionWithin9Practice() {
     }, 0);
   };
 
+  const resetQuiz = () => {
+    setAnswers({});
+    setSubmitted(false);
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>➖ 뺄셈 연습 (몇 - 몇)</h1>
@@ -67,17 +72,27 @@ export default function SubtractionWithin9Practice() {
                 onChange={(e) => handleChange(id, e.target.value)}
               />
             </div>
+            {submitted && answers[id] !== left - right && (
+              <div className={styles.correctAnswer}>정답: {left - right}</div>
+            )}
           </div>
         ))}
       </div>
 
-      {!submitted ? (
-        <button className={styles.submitButton} onClick={() => setSubmitted(true)}>
-          정답 확인
-        </button>
-      ) : (
-        <div className={styles.score}>총 점수: {getScore()} / {problems.length}</div>
-      )}
+      <div className={styles.buttonGroup}>
+        {!submitted ? (
+          <button className={styles.submitButton} onClick={() => setSubmitted(true)}>
+            정답 확인
+          </button>
+        ) : (
+          <>
+            <div className={styles.score}>총 점수: {getScore()} / {problems.length}</div>
+            <button className={styles.submitButton} onClick={resetQuiz}>
+              다시 풀기
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
