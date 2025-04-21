@@ -1,26 +1,26 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import { subjects } from './../data/subjects';
+import { subjects } from '../subjects';
 
-export default function SocialPage() {
-  // 사회 과목 데이터 가져오기
-  const socialSubject = subjects.find(s => s.id === 'social');
+export default function SciencePage() {
+  // 과학 과목 데이터 가져오기
+  const scienceSubject = subjects.find(s => s.id === 'science');
   
   return (
     <>
       <main className="max-w-screen-lg mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-8 text-center">{socialSubject.name} 학습</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center">{scienceSubject.name} 학습</h1>
         
         <div className={styles.chapterGrid}>
           {/* 모든 학년의 컨텐츠를 한 페이지에 표시 */}
-          {socialSubject.grades.map(grade => 
+          {scienceSubject.grades.map(grade => 
             grade.chapters.map(chapter => {
               // 서브챕터가 있는 경우
               if (chapter.subChapters && chapter.subChapters.length > 0) {
                 return chapter.subChapters.map(sub => (
                   <Link 
                     key={`${grade.id}-${chapter.id}-${sub.id}`}
-                    href={`/social/${grade.id}/${chapter.id}/${sub.id}`}
+                    href={`/data/science/${grade.id}/${chapter.id}/${sub.id}`}
                     className={styles.chapterCard}
                   >
                     <div className={styles.chapterIcon}>{sub.icon}</div>
@@ -34,7 +34,7 @@ export default function SocialPage() {
               return (
                 <Link 
                   key={`${grade.id}-${chapter.id}`}
-                  href={`/social/${grade.id}/${chapter.id}`}
+                  href={`/data/science/${grade.id}/${chapter.id}`}
                   className={styles.chapterCard}
                 >
                   <div className={styles.chapterIcon}>{chapter.icon}</div>

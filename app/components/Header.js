@@ -22,6 +22,9 @@ const Header = () => {
         <Link href="/about" className={styles.navLink}>
           소개
         </Link>
+        <Link href="/view" className={styles.navLink}>
+          뷰
+        </Link>
         <Link href="/help" className={styles.navLink}>
           도움말
         </Link>

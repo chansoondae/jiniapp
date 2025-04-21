@@ -132,6 +132,14 @@ export const subjects = [
                 description: '6~9단 곱셈 문제를 연습해요',
                 icon: '🐥'
               }
+              ,
+              {
+                id: 'animalsWorksheet',
+                name: 'animal worksheet',
+                component: 'AnimalsWorksheet',
+                description: '수학/곱셈과 덧셈',
+                icon: '🐞'
+              }
             ]
           }
         ]

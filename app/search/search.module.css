@@ -1,0 +1,274 @@
+/* app/search/search.module.css */
+.container {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .subTitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .searchContainer {
+    margin-bottom: 2rem;
+  }
+  
+  .searchForm {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .searchInput {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .searchInput:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.1);
+  }
+  
+  .searchButton {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .searchButton:hover {
+    background-color: #5649c0;
+    transform: translateY(-2px);
+  }
+  
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+  
+  .loading {
+    padding: 1rem 2rem;
+    background-color: rgba(108, 92, 231, 0.1);
+    border-radius: 12px;
+    font-weight: 500;
+    color: #6c5ce7;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .errorContainer {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+  
+  .error {
+    padding: 1.5rem;
+    background-color: rgba(255, 92, 92, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+  }
+  
+  .error h2 {
+    color: #ff5c5c;
+    margin-bottom: 0.5rem;
+  }
+  
+  .error p {
+    margin-bottom: 1rem;
+    color: #666;
+  }
+  
+  .retryButton {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .retryButton:hover {
+    background-color: #e04d4d;
+  }
+  
+  .emptyState {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  
+  .initialState {
+    text-align: center;
+    padding: 3rem 0;
+    color: #888;
+  }
+  
+  .emptyIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .emptyState h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .emptyState p {
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  .createEmptyButton {
+    display: inline-block;
+    background-color: #6c5ce7;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .createEmptyButton:hover {
+    background-color: #5649c0;
+    transform: translateY(-2px);
+  }
+  
+  .filesList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .fileCard {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+  }
+  
+  .fileCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fileIcon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #6c5ce7;
+  }
+  
+  .fileInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fileTitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: #333;
+  }
+  
+  .fileSubTitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  
+  .fileDate {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  .fileArrow {
+    color: #6c5ce7;
+  }
+  
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .loadMoreButton {
+    background-color: transparent;
+    border: 2px solid #6c5ce7;
+    color: #6c5ce7;
+    padding: 0.5rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .loadMoreButton:hover {
+    background-color: rgba(108, 92, 231, 0.1);
+  }
+  
+  .loadMoreButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* 모바일 반응형 */
+  @media (max-width: 640px) {
+    .searchForm {
+      flex-direction: column;
+    }
+    
+    .searchButton {
+      width: 100%;
+      padding: 0.75rem 0;
+    }
+    
+    .fileIcon {
+      font-size: 1.6rem;
+    }
+    
+    .fileTitle {
+      font-size: 1rem;
+    }
+    
+    .fileSubTitle, .fileDate {
+      font-size: 0.8rem;
+    }
+  }

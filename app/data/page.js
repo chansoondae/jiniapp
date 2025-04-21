@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import { subjects } from './data/subjects';
-import styles from './page.module.css';
+import { subjects } from '../data/subjects';
+import styles from './data.module.css';
 
-export default function Home() {
+export default function DataPage() {
   return (
     <>
       <main>
         <div className="max-w-screen-lg mx-auto">
-          <h1 className="text-3xl font-bold text-center mb-2">학습 과목을 선택하세요</h1>
+          <h1 className="text-3xl font-bold text-center mb-2">학습 자료를 선택하세요</h1>
           <div className={styles.subjectGrid}>
             {subjects.map(subject => (
               <Link 

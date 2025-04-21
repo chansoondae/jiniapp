@@ -1,0 +1,444 @@
+/* page.module.css */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.title {
+  text-align: center;
+  color: #8b4ab6;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.worksheetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.questionBox {
+  border: 2px solid #d9b8e6;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f5fc;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.questionContent {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.questionBox h3 {
+  color: #8b4ab6;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #8b4ab6;
+}
+
+.subQuestion {
+  margin-bottom: 1rem;
+}
+
+.subQuestionText {
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.subQuestionText::first-letter {
+  color: #8b4ab6;
+  font-weight: bold;
+}
+
+.answerBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem; /* 더 많은 공간 확보 */
+  position: relative;
+}
+
+.answerInput {
+  width: 60px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.answerLabel {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.correct {
+  background-color: #e6ffe6;
+  border-color: #4caf50;
+}
+
+.incorrect {
+  background-color: #ffebeb;
+  border-color: #f44336;
+}
+
+.correctAnswerContainer {
+  position: absolute;
+  left: 70px;
+  top: 42px;
+  width: calc(100% - 80px); /* 너비 약간 줄임 */
+  z-index: 10;
+  max-width: 300px; /* 최대 너비 설정 */
+}
+
+.correctAnswer {
+  color: #4caf50;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.explanation {
+  background-color: #f5f5f5;
+  border-left: 3px solid #8b4ab6;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.25rem;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word; /* 긴 단어 처리 */
+  word-break: keep-all; /* 한글 단어 중간에 줄바꿈 방지 */
+  white-space: pre-line; /* 줄바꿈 유지 */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.submitButton, .resetButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.submitButton {
+  background-color: #8b4ab6;
+  color: white;
+}
+
+.resetButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.submitButton:hover, .resetButton:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.scoreDisplay {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #8b4ab6;
+  padding: 0.75rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+/* 이미지 컨테이너 스타일 */
+.imageContainer {
+  background-color: #f0f0f0;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* 무당벌레 스타일 */
+.ladybugContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ladybug {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.ladybugBody {
+  width: 30px;
+  height: 40px;
+  background-color: #e6b3e6;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ladybugHead {
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: 8px;
+}
+
+.ladybugSpot {
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 3px;
+}
+
+/* 나비 스타일 */
+.butterflyContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.butterfly {
+  position: relative;
+  width: 50px;
+  height: 40px;
+}
+
+.butterflyWings {
+  width: 50px;
+  height: 30px;
+  background-color: #e6b3e6;
+  border-radius: 50%;
+  position: relative;
+}
+
+.butterflyBody {
+  width: 6px;
+  height: 30px;
+  background-color: #333;
+  position: absolute;
+  left: 22px;
+  top: 0;
+}
+
+.butterflyAntenna1, .butterflyAntenna2 {
+  width: 1px;
+  height: 15px;
+  background-color: #333;
+  position: absolute;
+  top: -10px;
+}
+
+.butterflyAntenna1 {
+  left: 18px;
+  transform: rotate(-20deg);
+}
+
+.butterflyAntenna2 {
+  left: 28px;
+  transform: rotate(20deg);
+}
+
+/* 원숭이 스타일 */
+.monkeyContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.monkey {
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.monkeyFace {
+  width: 40px;
+  height: 40px;
+  background-color: #e6d0b3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monkeyEyes {
+  width: 25px;
+  height: 8px;
+  background-color: transparent;
+  position: relative;
+}
+
+.monkeyEyes::before, .monkeyEyes::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.monkeyEyes::before {
+  left: 0;
+}
+
+.monkeyEyes::after {
+  right: 0;
+}
+
+/* 소와 농부 스타일 */
+.cowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.cow {
+  position: relative;
+  width: 80px;
+  height: 50px;
+}
+
+.cowBody {
+  width: 60px;
+  height: 30px;
+  background-color: #e6b3cc;
+  border-radius: 30px;
+  position: absolute;
+  top: 10px;
+}
+
+.cowHead {
+  width: 20px;
+  height: 20px;
+  background-color: #e6b3cc;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: 15px;
+}
+
+.cowLegs {
+  width: 50px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+}
+
+.cowLegs::before, .cowLegs::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 15px;
+  background-color: #e6b3cc;
+}
+
+.cowLegs::before {
+  left: 10px;
+}
+
+.cowLegs::after {
+  right: 10px;
+}
+
+.farmer {
+  width: 15px;
+  height: 40px;
+  background-color: #8b4ab6;
+  position: relative;
+}
+
+.farmer::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #e6d0b3;
+  border-radius: 50%;
+  top: -10px;
+  left: 1.5px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .worksheetGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .questionBox {
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submitButton, .resetButton, .scoreDisplay {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .correctAnswerContainer {
+    position: relative;
+    left: 0;
+    top: 5px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 8px;
+  }
+  
+  .answerBox {
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+  }
+}
+
+/* 태블릿 대응 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .worksheetGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
