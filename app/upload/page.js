@@ -165,9 +165,9 @@ export default function UploadPage() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>문제지 이미지 업로드</h1>
+      <h1 className={styles.title}>문제지 이미지 업로드 (❌ 준비중)</h1>
       <p className={styles.description}>
-        문제지 사진을 업로드하면 AI가 분석하여 즉시 인터랙티브한 학습 자료를 만들어드립니다.
+        문제지 사진을 업로드하면 AI가 분석하여 즉시 인터랙티브한 학습 자료를 만들어드립니다. (❌ 준비중)
       </p>
       
       {/* 로딩 바를 설명 텍스트 아래로 이동 */}
@@ -211,13 +211,13 @@ export default function UploadPage() {
           ) : (
             <div className={styles.uploadInstruction}>
               <div className={styles.uploadIcon}>📷</div>
-              <p>이미지를 드래그하거나 클릭하여 업로드하세요</p>
+              <p>이미지를 드래그하거나 클릭하여 업로드하세요 (❌ 준비중)</p>
             </div>
           )}
           <input
             type="file"
             ref={fileInputRef}
-            disabled={loading}
+            disabled={true}
             onChange={handleFileChange}
             accept="image/*"
             className={styles.fileInput}
